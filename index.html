@@ -247,9 +247,23 @@
             display: block;
         }
 
-        .stat-description {
-            color: #7f8c8d;
-            font-size: 0.95rem;
+        .question-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .question-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .question-text {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.4;
         }
 
         /* Solution Framework */
@@ -650,20 +664,17 @@
                 
                 <div class="problem-stats">
                     <div class="stat-item">
-                        <span class="stat-value">70%</span>
-                        <span class="stat-description">of development teams report chronic backlog overflow</span>
+                        <span class="stat-value">4-6 months</span>
+                        <span class="stat-description">typical timeline for medium-scale software projects</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-value">3-6 months</span>
-                        <span class="stat-description">average time from feature idea to production</span>
+                    <div class="question-item">
+                        <span class="question-text">Is your backlog growing faster than you can clear it?</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-value">80%</span>
-                        <span class="stat-description">of product managers have ideas they can't implement</span>
+                    <div class="question-item">
+                        <span class="question-text">How many great ideas do your PMs have that never get built?</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-value">$100K+</span>
-                        <span class="stat-description">annual cost per developer hour wasted on inefficiency</span>
+                    <div class="question-item">
+                        <span class="question-text">What's the real cost of your current development delays?</span>
                     </div>
                 </div>
             </div>
