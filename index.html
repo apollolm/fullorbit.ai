@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fullOrbit.ai - Strategic AI Development Partnership</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .logo .ai {
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #5a6fd8;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text .highlight {
+            color: #667eea;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .hero-metrics {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric {
+            text-align: center;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+        }
+
+        .metric-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .hero-visual {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 0.95rem;
+            color: #2c3e50;
+        }
+
+        /* Problem Statement */
+        .problem-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .problem-text h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .problem-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .problem-list li::before {
+            content: '⚠';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+
+        .problem-stats {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #e9ecef;
+        }
+
+        .stat-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e74c3c;
+            display: block;
+        }
+
+        .stat-description {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        /* Solution Framework */
+        .solution-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .solution-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Case Study */
+        .case-study {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .case-study h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .case-study-text {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .case-study-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .result-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #27ae60;
+            display: block;
+        }
+
+        .result-label {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        /* Packages */
+        .packages {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .packages h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+        }
+
+        .package-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
+        }
+
+        .package-card.recommended {
+            border: 2px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .package-card.recommended::before {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .package-header {
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .package-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-investment {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-duration {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .package-scope {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .package-features {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .package-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f8f9fa;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .package-cta {
+            margin-top: 2rem;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            padding: 4rem 0;
+            background: white;
+            text-align: center;
+        }
+
+        .trust-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 200px;
+        }
+
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .trust-text {
+            color: #7f8c8d;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            text-align: center;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-metrics {
+                justify-content: center;
+            }
+            
+            .problem-grid, .case-study-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .package-card.recommended {
+                transform: none;
+            }
+            
+            .trust-indicators {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">fullOrbit<span class="ai">.ai</span></a>
+            <ul class="nav-links">
+                <li><a href="#problem">Challenge</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#packages">Partnership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button">Schedule Consultation</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Your Development <span class="highlight">Velocity</span></h1>
+                    <p>Strategic AI development partnership that turns your backlog from burden to competitive advantage. Proven results from real-world implementation.</p>
+                    
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <span class="metric-number">8 hrs</span>
+                            <span class="metric-label">vs 3-4 weeks</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-number">15-20x</span>
+                            <span class="metric-label">faster cycles</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-number">40-60%</span>
+                            <span class="metric-label">faster delivery</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button">Explore Partnership</a>
+                </div>
+                
+                <div class="hero-visual">
+                    <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">Our Transformation Process</h3>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">Assessment & Strategic Planning</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">Team Training & Tool Implementation</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-text">Workflow Automation & Integration</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-text">Cultural Change & Optimization</div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-text">Continuous Improvement & Scaling</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-section" id="problem">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-text">
+                    <h2>The Development Velocity Challenge</h2>
+                    <p>Your engineering team is drowning in an endless backlog while business-critical features sit in "someday" status. Meanwhile, non-technical leaders with great ideas can't contribute to implementation.</p>
+                    
+                    <ul class="problem-list">
+                        <li>Endless backlog preventing focus on high-impact features</li>
+                        <li>Limited technical capacity constraining business growth</li>
+                        <li>Long development cycles missing market opportunities</li>
+                        <li>Siloed teams with communication friction</li>
+                        <li>Technical debt slowing future development</li>
+                    </ul>
+                    
+                    <p><strong>The result?</strong> Your competition moves faster while you're stuck in development bottlenecks.</p>
+                </div>
+                
+                <div class="problem-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">70%</span>
+                        <span class="stat-description">of development teams report chronic backlog overflow</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">3-6 months</span>
+                        <span class="stat-description">average time from feature idea to production</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">80%</span>
+                        <span class="stat-description">of product managers have ideas they can't implement</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">$100K+</span>
+                        <span class="stat-description">annual cost per developer hour wasted on inefficiency</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution-section" id="solution">
+        <div class="container">
+            <h2>AI-Powered Development Transformation</h2>
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <h3>🚀 Velocity Acceleration</h3>
+                    <p>Transform 3-4 week development cycles into 8-hour sprints using AI-assisted development. Proven 15-20x improvement in development speed.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>👥 Team Empowerment</h3>
+                    <p>Enable PMs, TPMs, and technical leaders to contribute code directly. Expand your technical capacity beyond the engineering team.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>🔄 Workflow Integration</h3>
+                    <p>Custom automation connecting Slack, GitHub, JIRA, and Google Workspace. Seamless integration with your existing development process and team culture.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>📊 Quality Assurance</h3>
+                    <p>AI-assisted testing and code reviews maintain high standards while accelerating delivery. Better code quality, not just faster code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-study">
+        <div class="container">
+            <h2>Proven Results: Fortune 500 Aerospace Implementation</h2>
+            <div class="case-study-content">
+                <div class="case-study-text">
+                    <h3>Real-World Implementation</h3>
+                    <p>Working with a leading aerospace technology company, we transformed their development process from traditional cycles to AI-accelerated delivery. A technical leader successfully built a complete feature in 8 hours that would have taken the engineering team 3-4 weeks using conventional development approaches.</p>
+                    
+                    <p>This wasn't just a one-time success - it represented a fundamental shift in how the organization approaches development, enabling technical leaders across departments to contribute directly to implementation while maintaining rigorous quality standards.</p>
+                    
+                    <p><strong>Key Success Factors:</strong></p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Strategic process transformation, not just tool adoption</li>
+                        <li>Cultural change management alongside technical training</li>
+                        <li>Custom workflow integration with existing systems</li>
+                        <li>Continuous optimization and ongoing support</li>
+                    </ul>
+                </div>
+                
+                <div class="case-study-results">
+                    <div class="result-item">
+                        <span class="result-value">15-20x</span>
+                        <span class="result-label">Development Speed Increase</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">60%</span>
+                        <span class="result-label">Faster Feature Delivery</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">3x</span>
+                        <span class="result-label">Technical Contributor Pool</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-value">8 hrs</span>
+                        <span class="result-label">vs 3-4 Week Features</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="packages" id="packages">
+        <div class="container">
+            <h2>Strategic Partnership Options</h2>
+            <div class="package-comparison">
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-title">Foundation Partnership</div>
+                        <div class="package-investment">Investment based on scope</div>
+                        <div class="package-scope">5-day intensive transformation program</div>
+                    </div>
+                    <ul class="package-features">
+                        <li>Strategic assessment and planning</li>
+                        <li>Team training and implementation</li>
+                        <li>Leadership cultural change workshops</li>
+                        <li>Real-world project implementation</li>
+                        <li>30-day ongoing support</li>
+                        <li>ROI measurement framework</li>
+                    </ul>
+                    <div class="package-cta">
+                        <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button">Schedule Consultation</a>
+                    </div>
+                </div>
+
+                <div class="package-card recommended">
+                    <div class="package-header">
+                        <div class="package-title">Complete Transformation</div>
+                        <div class="package-investment">Custom engagement pricing</div>
+                        <div class="package-scope">Comprehensive 7-day program with integrations</div>
+                    </div>
+                    <ul class="package-features">
+                        <li>Everything in Foundation Partnership</li>
+                        <li>Custom workflow automation design</li>
+                        <li>MCP integration (Slack, GitHub, JIRA, Google Workspace)</li>
+                        <li>CI/CD pipeline integration (GitHub Actions, GitLab CI)</li>
+                        <li>Advanced team empowerment strategies</li>
+                        <li>Custom tool integrations and connectors</li>
+                    </ul>
+                    <div class="package-cta">
+                        <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button">Discuss Requirements</a>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-title">Strategic Consulting</div>
+                        <div class="package-investment">Flexible engagement terms</div>
+                        <div class="package-scope">Ongoing advisory and specialized implementation</div>
+                    </div>
+                    <ul class="package-features">
+                        <li>Custom MCP development for your workflow</li>
+                        <li>Specialized automation (Slack, JIRA, Notion integration)</li>
+                        <li>Integration troubleshooting and optimization</li>
+                        <li>Ongoing support for GitHub, GitLab, and CI/CD systems</li>
+                        <li>Advanced implementation guidance</li>
+                        <li>Strategic advisory sessions</li>
+                    </ul>
+                    <div class="package-cta">
+                        <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button">Explore Options</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-section">
+        <div class="container">
+            <h2>Why Choose fullOrbit.ai</h2>
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <div class="trust-icon">🏢</div>
+                    <div class="trust-text">
+                        <strong>Proven Experience</strong><br>
+                        Real-world implementation at Fortune 500 aerospace company with measurable results
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🎯</div>
+                    <div class="trust-text">
+                        <strong>Strategic Focus</strong><br>
+                        Complete organizational transformation, not just tool training
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">⚡</div>
+                    <div class="trust-text">
+                        <strong>Rapid ROI</strong><br>
+                        Payback period of 1-2 months based on developer time savings
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🤝</div>
+                    <div class="trust-text">
+                        <strong>Partnership Approach</strong><br>
+                        Ongoing support and continuous optimization for long-term success
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ready to Transform?</h3>
+                    <p>Schedule a strategic consultation to discuss your development challenges and explore how AI-powered transformation can accelerate your business.</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" style="color: #667eea; font-weight: 600;">Schedule Your Consultation</a>
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        <a href="mailto:contact@fullorbit.ai" style="color: #bdc3c7;">contact@fullorbit.ai</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Partnership Options</h3>
+                    <p><a href="#packages">Foundation Partnership</a></p>
+                    <p><a href="#packages">Complete Transformation</a></p>
+                    <p><a href="#packages">Strategic Consulting</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <p><a href="#solution">Transformation Process</a></p>
+                    <p><a href="#problem">Business Case Development</a></p>
+                    <p><a href="#packages">Case Studies</a></p>
+                    <p><a href="#contact">Success Stories</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 fullOrbit.ai. Strategic AI Development Transformation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation to metrics on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe metric elements
+        document.querySelectorAll('.metric, .result-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
