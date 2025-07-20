@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fullOrbit.ai - Strategic AI Development Partnership</title>
+    <link rel="icon" type="image/png" href="img/icononly_nobuffer.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,9 +15,10 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #2c3e50;
             background: #ffffff;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -26,7 +29,8 @@
 
         /* Header */
         header {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
@@ -43,14 +47,11 @@
         }
 
         .logo {
+            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            font-weight: 700;
-            color: #2c3e50;
-            text-decoration: none;
-        }
-
-        .logo .ai {
+            font-weight: 600;
             color: #667eea;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -62,8 +63,9 @@
         .nav-links a {
             text-decoration: none;
             color: #2c3e50;
-            font-weight: 500;
+            font-weight: 400;
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
@@ -73,216 +75,342 @@
         .cta-button {
             background: #667eea;
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem;
+            border: none;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
         .cta-button:hover {
             background: #5a6fd8;
+            transform: translateY(-1px);
         }
 
         /* Hero Section */
         .hero {
             margin-top: 80px;
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.85) 100%);
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(255, 255, 255, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 3fr 2fr;
             gap: 3rem;
             align-items: center;
         }
 
         .hero-text h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero-text .highlight {
             color: #667eea;
+            font-style: italic;
         }
 
         .hero-text p {
             font-size: 1.2rem;
-            color: #7f8c8d;
+            color: #f0f0f0;
             margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-metrics {
+        .hero-stats {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             margin-bottom: 2rem;
         }
 
-        .metric {
-            text-align: center;
-            background: white;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            min-width: 120px;
+        .stat {
+            text-align: left;
         }
 
-        .metric-number {
-            font-size: 1.8rem;
-            font-weight: 700;
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
             color: #667eea;
             display: block;
+            line-height: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .metric-label {
+        .stat-label {
             font-size: 0.9rem;
-            color: #7f8c8d;
+            color: #e0e0e0;
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .hero-visual {
-            background: white;
-            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
-        .process-flow {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .hero-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
         }
 
-        .process-step {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
+        .hero-visual-content {
+            padding: 2rem;
         }
 
-        .step-number {
-            background: #667eea;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .step-text {
-            font-size: 0.95rem;
-            color: #2c3e50;
-        }
-
-        /* Problem Statement */
-        .problem-section {
-            padding: 4rem 0;
-            background: white;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .problem-text h2 {
-            font-size: 2.5rem;
-            color: #2c3e50;
+        .hero-visual h3 {
+            font-family: 'Playfair Display', serif;
+            color: #667eea;
             margin-bottom: 1.5rem;
+            font-size: 1.5rem;
         }
 
-        .problem-list {
+        .process-list {
             list-style: none;
-            margin: 2rem 0;
         }
 
-        .problem-list li {
-            padding: 1rem 0;
+        .process-list li {
+            padding: 0.75rem 0;
             border-bottom: 1px solid #e9ecef;
+            color: #7f8c8d;
+            font-size: 0.95rem;
             position: relative;
             padding-left: 2rem;
         }
 
-        .problem-list li::before {
-            content: '⚠';
+        .process-list li:last-child {
+            border-bottom: none;
+        }
+
+        .process-list li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
             position: absolute;
             left: 0;
-            color: #e74c3c;
-            font-size: 1.2rem;
+            top: 0.75rem;
+            background: #667eea;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
-        .problem-stats {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid #e9ecef;
+        .process-list {
+            counter-reset: step-counter;
         }
 
-        .stat-item {
-            margin-bottom: 1.5rem;
+        /* Concrete Value Section */
+        .concrete-value-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, #ffffff 0%, #fdfdfd 100%);
         }
 
-        .stat-item:last-child {
-            margin-bottom: 0;
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #e74c3c;
-            display: block;
-        }
-
-        .question-item {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            border-left: 3px solid #667eea;
-        }
-
-        .question-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .question-text {
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             color: #2c3e50;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
             font-weight: 500;
-            line-height: 1.4;
         }
 
-        /* Solution Framework */
-        .solution-section {
-            padding: 4rem 0;
+        .section-header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .value-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .value-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: #667eea;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .value-card ul {
+            list-style: none;
+        }
+
+        .value-card li {
+            padding: 0.5rem 0;
+            color: #7f8c8d;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .value-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #f5f6f7 100%);
+        }
+
+        .vision-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .vision-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .vision-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .vision-text p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .vision-examples {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .vision-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .vision-item h4 {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .vision-item p {
+            color: #27ae60;
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Solutions Section */
+        .solutions-section {
+            padding: 5rem 0;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
 
-        .solution-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+        .solutions-section .section-header h2 {
+            color: white;
         }
 
-        .solution-grid {
+        .solutions-section .section-header p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .solutions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .solution-card {
@@ -291,165 +419,214 @@
             padding: 2rem;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .solution-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         .solution-card h3 {
-            font-size: 1.5rem;
+            color: white;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .solution-card p {
-            opacity: 0.9;
-            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* Leadership Section */
         .leadership-section {
-            padding: 4rem 0;
-            background: #f8f9fa;
+            padding: 5rem 0;
+            background: linear-gradient(180deg, #ffffff 0%, #fdfdfd 100%);
         }
 
-        .leadership-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 3rem;
+        .leadership-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
 
         .leadership-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: start;
         }
 
-        .leadership-text h3 {
-            font-size: 1.8rem;
+        .leadership-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .leadership-text h3 {
+            color: #667eea;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .leadership-text p {
             color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 2rem;
         }
 
         .leadership-challenges {
             display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
 
         .challenge-item {
-            background: white;
+            background: #f8f9fa;
             padding: 1.5rem;
             border-radius: 10px;
-            border-left: 4px solid #e74c3c;
+            border-left: 3px solid #e74c3c;
         }
 
         .challenge-item h4 {
             color: #e74c3c;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .challenge-item p {
             color: #7f8c8d;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            line-height: 1.4;
             margin: 0;
         }
 
         .leadership-solution {
-            background: white;
-            padding: 2rem;
+            background: #f8f9fa;
+            padding: 2.5rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
         }
 
         .leadership-solution h3 {
-            font-size: 1.8rem;
-            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            color: #667eea;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            font-weight: 500;
         }
 
-        .leadership-solution > p {
+        .leadership-solution p {
             color: #7f8c8d;
-            line-height: 1.6;
             margin-bottom: 2rem;
         }
 
         .facilitation-process {
-            display: flex;
-            flex-direction: column;
+            display: grid;
             gap: 1.5rem;
         }
 
         .process-item {
             display: flex;
-            align-items: flex-start;
+            align-items: start;
             gap: 1rem;
         }
 
         .process-icon {
-            background: #667eea;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
-            margin-top: 0.2rem;
         }
 
         .process-text h4 {
             color: #2c3e50;
-            margin-bottom: 0.3rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .process-text p {
             color: #7f8c8d;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
             margin: 0;
         }
 
-        /* Case Study */
-        .case-study {
-            padding: 4rem 0;
-            background: white;
+        /* Case Study Section */
+        .case-study-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #f5f6f7 100%);
         }
 
-        .case-study h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 3rem;
+        .case-study-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
 
         .case-study-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            gap: 4rem;
+            align-items: start;
         }
 
-        .case-study-text {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
+        .case-study-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .case-study-text h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .case-study-text p {
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .case-study-text ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .case-study-text li {
+            padding: 0.5rem 0;
+            color: #7f8c8d;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .case-study-text li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
         }
 
         .technical-vignettes {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .vignette-item {
@@ -460,197 +637,106 @@
         }
 
         .vignette-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #2c3e50;
+            color: #667eea;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .vignette-item p {
             color: #7f8c8d;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.4;
+            margin: 0;
         }
 
         /* About Section */
         .about-section {
-            padding: 4rem 0;
-            background: white;
+            padding: 5rem 0;
+            background: linear-gradient(180deg, #ffffff 0%, #fdfdfd 100%);
         }
 
-        .about-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             color: #2c3e50;
-            margin-bottom: 3rem;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            text-align: center;
         }
 
         .about-text h3 {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .experience-item {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .experience-item h4 {
             color: #667eea;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
-        .experience-item p {
+        .about-text p {
             color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            margin: 3rem 0;
+        }
+
+        .team-member {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 2rem;
+        }
+
+        .member-content {
+            display: flex;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 60px;
+            flex-shrink: 0;
+            border: 3px solid #667eea;
+        }
+
+        .member-info h4 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .member-title {
+            color: #2c3e50;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1rem !important;
+        }
+
+        .member-info p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
             line-height: 1.6;
             margin: 0;
         }
 
-        .about-text p {
-            color: #2c3e50;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Packages */
-        .packages {
-            padding: 4rem 0;
-            background: #f8f9fa;
-        }
-
-        .packages h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 3rem;
-        }
-
-        .package-comparison {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .package-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            text-align: center;
-        }
-
-        .package-card.recommended {
-            border: 2px solid #667eea;
-            transform: scale(1.05);
-        }
-
-        .package-card.recommended::before {
-            content: 'RECOMMENDED';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #667eea;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .package-header {
-            border-bottom: 1px solid #e9ecef;
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .package-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-investment {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-duration {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-
-        .package-scope {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .package-features {
-            list-style: none;
-            text-align: left;
-            margin: 2rem 0;
-        }
-
-        .package-features li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #f8f9fa;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .package-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .package-cta {
-            margin-top: 2rem;
-        }
-
         /* FAQ Section */
         .faq-section {
-            padding: 4rem 0;
-            background: #f8f9fa;
-        }
-
-        .faq-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 3rem;
+            padding: 5rem 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #f5f6f7 100%);
         }
 
         .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .faq-item {
@@ -658,217 +744,124 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .faq-item h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
+            color: #667eea;
             font-size: 1.2rem;
+            margin-bottom: 1rem;
             font-weight: 600;
         }
 
         .faq-item p {
             color: #7f8c8d;
             line-height: 1.6;
-            margin: 0;
         }
 
         .faq-item a {
             color: #667eea;
             text-decoration: none;
-            font-weight: 500;
         }
 
         .faq-item a:hover {
             text-decoration: underline;
         }
 
-        /* Trust Section */
-        .trust-section {
-            padding: 4rem 0;
-            background: white;
-            text-align: center;
-        }
-
-        .trust-section h2 {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-        }
-
-        .trust-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 200px;
-        }
-
-        .trust-icon {
-            width: 60px;
-            height: 60px;
-            background: #667eea;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .trust-text {
-            color: #7f8c8d;
-            text-align: center;
-            line-height: 1.5;
-        }
-
         /* Footer */
         footer {
             background: #2c3e50;
+            padding: 3rem 0 2rem;
             color: white;
-            padding: 3rem 0 1rem;
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            text-align: center;
         }
 
-        .footer-section h3 {
+        .footer-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #667eea;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #667eea;
+            font-weight: 500;
         }
 
-        .footer-section p, .footer-section a {
+        .footer-content p {
             color: #bdc3c7;
-            text-decoration: none;
-            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
 
-        .footer-section a:hover {
+        .footer-content a {
             color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-content a:hover {
+            text-decoration: underline;
         }
 
         .footer-bottom {
-            border-top: 1px solid #34495e;
-            padding-top: 1rem;
             text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
             color: #95a5a6;
+            font-size: 0.85rem;
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.2rem;
-                line-height: 1.3;
-            }
-            
-            .hero-metrics {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            
-            .metric {
-                min-width: 100px;
-                flex: 1;
-                max-width: 150px;
-            }
-            
-            .case-study-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .package-card.recommended {
-                transform: none;
-            }
-            
-            .trust-indicators {
-                gap: 2rem;
-                flex-direction: column;
-                align-items: center;
-            }
-            
+            .hero-content,
+            .vision-content,
+            .case-study-content,
             .leadership-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
-            .leadership-challenges {
-                grid-template-columns: 1fr;
-            }
-            
+
+            .value-grid,
+            .solutions-grid,
             .experience-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
-            
-            .faq-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Make header CTA smaller on mobile */
-            header .cta-button {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.85rem;
-                white-space: nowrap;
-            }
-            
-            /* Fix any potential overflow issues */
-            body {
-                overflow-x: hidden;
-            }
-            
-            .hero-visual, .problem-stats, .leadership-solution {
-                width: 100%;
-                box-sizing: border-box;
-            }
-            
-            /* Ensure all sections fit properly */
-            section {
-                overflow-x: hidden;
-            }
-        }
-        
-        /* Extra small screens like iPhone 12 Mini */
-        @media (max-width: 390px) {
+
             .hero-text h1 {
-                font-size: 1.9rem;
+                font-size: 2.5rem;
             }
-            
-            .hero-metrics {
-                gap: 0.5rem;
+
+            .section-header h2,
+            .vision-text h2,
+            .case-study-text h2,
+            .leadership-text h2,
+            .about-text h2 {
+                font-size: 2.2rem;
             }
-            
-            .metric {
-                min-width: 80px;
-                padding: 0.8rem;
+
+            .hero-stats {
+                gap: 2rem;
             }
-            
-            header .cta-button {
-                padding: 0.4rem 0.6rem;
-                font-size: 0.8rem;
+
+            .nav-links {
+                display: none;
+            }
+
+            .member-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .member-photo {
+                align-self: center;
             }
         }
     </style>
@@ -876,32 +869,32 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">fullOrbit<span class="ai">.ai</span></a>
+            <a href="#" class="logo">fullOrbit<span style="color: #667eea;">.ai</span></a>
             <ul class="nav-links">
-                <li><a href="#solution">Solution</a></li>
-                <li><a href="#leadership">Leadership</a></li>
-                <li><a href="#packages">Consulting</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#case-study">Experience</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
-            <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button" target="_blank" rel="noopener noreferrer">Schedule Discovery Call</a>
+            <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button" target="_blank" rel="noopener noreferrer">Schedule Call</a>
         </nav>
     </header>
 
     <section class="hero">
+        <img src="img/earth.jpg" alt="Earth from space showing the planet's curvature against the blackness of space" class="hero-background">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Stop Waiting Weeks for <span class="highlight">Simple Features</span></h1>
-                    <p>Your team is spending too much time on routine development work. Claude Code changes that—turning week-long features into same-day deliveries. I'll show you how to do it right.</p>
+                    <h1>Clear Your Backlog, Focus on <span class="highlight">What Matters</span></h1>
+                    <p>Your team is brilliant at solving hard problems. They shouldn't be stuck writing boilerplate and debugging syntax errors. Claude Code handles the routine work so they can think about architecture, strategy, and the features that actually move your business forward.</p>
                     
-                    <div class="hero-metrics">
-                        <div class="metric">
-                            <span class="metric-number">Weeks</span>
-                            <span class="metric-label">to hours</span>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">Weeks</span>
+                            <span class="stat-label">to Hours</span>
                         </div>
-                        <div class="metric">
-                            <span class="metric-number">5-10x</span>
-                            <span class="metric-label">faster cycles</span>
+                        <div class="stat">
+                            <span class="stat-number">5-10x</span>
+                            <span class="stat-label">Faster Cycles</span>
                         </div>
                     </div>
                     
@@ -909,59 +902,137 @@
                 </div>
                 
                 <div class="hero-visual">
-                    <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">How We Speed Up Your Team</h3>
-                    <div class="process-flow">
-                        <div class="process-step">
-                            <div class="step-number">1</div>
-                            <div class="step-text">Understand Your Business & Development Challenges</div>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">2</div>
-                            <div class="step-text">Tool Setup & Team Knowledge Configuration</div>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">3</div>
-                            <div class="step-text">Advanced Context & Prompting Techniques</div>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">4</div>
-                            <div class="step-text">Hands-on Implementation & Proof of Concept</div>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">5</div>
-                            <div class="step-text">Team Adoption & Getting Buy-in</div>
-                        </div>
+                    <img src="img/developer-workspace.jpg" alt="Developer workspace with multiple monitors" class="hero-image">
+                    <div class="hero-visual-content">
+                        <h3>Foundation Program</h3>
+                        <ol class="process-list">
+                            <li>Strategic Assessment & Planning</li>
+                            <li>Claude Code Training (5 sessions)</li>
+                            <li>Workflow Integration Setup</li>
+                            <li>Leadership Team Facilitation</li>
+                            <li>Team Adoption & Buy-in</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <section class="solution-section" id="solution">
+    <section class="concrete-value-section">
         <div class="container">
-            <h2>How This Actually Works</h2>
-            <div class="solution-grid">
+            <div class="section-header">
+                <h2>Here's Exactly What You Get</h2>
+                <p>No vague promises. Here are the specific deliverables and outcomes from the Foundation Program.</p>
+            </div>
+            
+            <div class="value-grid">
+                <div class="value-card">
+                    <h3>16-Hour Foundation Program</h3>
+                    <ul>
+                        <li>Five 2-hour Claude Code training sessions</li>
+                        <li>Custom MCP integrations for your workflows</li>
+                        <li>Real project implementation with your team</li>
+                        <li>Between-session Slack support</li>
+                    </ul>
+                </div>
+                
+                <div class="value-card">
+                    <h3>Leadership Facilitation</h3>
+                    <ul>
+                        <li>6 hours of executive coaching sessions</li>
+                        <li>Leadership team interviews and alignment</li>
+                        <li>Change management strategy</li>
+                        <li>1-3 prioritized organizational action items</li>
+                    </ul>
+                </div>
+                
+                <div class="value-card">
+                    <h3>Technical Setup</h3>
+                    <ul>
+                        <li>Claude Code installation and configuration</li>
+                        <li>Integration with GitHub, JIRA, Slack</li>
+                        <li>Custom automation workflows</li>
+                        <li>Security and compliance configuration</li>
+                    </ul>
+                </div>
+                
+                <div class="value-card">
+                    <h3>Measurable Outcomes</h3>
+                    <ul>
+                        <li>ROI measurement framework</li>
+                        <li>Velocity tracking setup</li>
+                        <li>Team adoption metrics</li>
+                        <li>30-day follow-up assessment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-section">
+        <div class="container">
+            <div class="vision-content">
+                <div class="vision-text">
+                    <img src="img/team-collaboration.jpg" alt="Team collaborating on strategy" class="vision-image">
+                    <h2>What Would You Do If Your Backlog Were Clear?</h2>
+                    <p>When development velocity increases dramatically, something interesting happens. You stop thinking about <em>how</em> to build and start thinking about <em>what</em> to build. Your team can finally focus on the problems that actually matter to your business.</p>
+                </div>
+                
+                <div class="vision-examples">
+                    <div class="vision-item">
+                        <h4>Instead of debugging CSS...</h4>
+                        <p>Your designers are prototyping new user experiences</p>
+                    </div>
+                    <div class="vision-item">
+                        <h4>Instead of writing CRUD APIs...</h4>
+                        <p>Your engineers are architecting scalable systems</p>
+                    </div>
+                    <div class="vision-item">
+                        <h4>Instead of managing backlogs...</h4>
+                        <p>Your PMs are discovering new opportunities</p>
+                    </div>
+                    <div class="vision-item">
+                        <h4>Instead of estimating stories...</h4>
+                        <p>Your leadership team is planning strategic initiatives</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solutions-section" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2>How This Actually Works</h2>
+                <p>The technical implementation combined with organizational change management that makes adoption stick.</p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <h3>🔄 Works With Your Development Environment</h3>
+                    <p>You don't need to change everything. Claude Code is a CLI tool that works with any IDE—VS Code, IntelliJ, Vim, whatever your team uses. No disruption to existing workflows.</p>
+                </div>
+                
                 <div class="solution-card">
                     <h3>🚀 Speed That Actually Matters</h3>
                     <p>Stop waiting for simple features. Claude Code helps you build what used to take weeks in a matter of hours. Focus on strategy instead of syntax.</p>
                 </div>
+                
                 <div class="solution-card">
                     <h3>👥 More People Can Build</h3>
                     <p>Your PMs and tech leads have good ideas—now they can build them too. Claude Code lets non-engineers contribute actual code, not just requirements.</p>
                 </div>
+                
                 <div class="solution-card">
-                    <h3>🔄 Works With Your Setup</h3>
-                    <p>You don't need to change everything. We'll connect Claude Code to your existing Slack, GitHub, and JIRA workflows so it feels natural, not disruptive.</p>
+                    <h3>📊 You Still Think, Just About Different Things</h3>
+                    <p>AI doesn't replace engineering judgment—it handles the tedious stuff. Your engineers focus on architecture, business logic, and system design instead of debugging syntax errors and writing boilerplate.</p>
                 </div>
-                <div class="solution-card">
-                    <h3>📊 Quality Stays High</h3>
-                    <p>Fast doesn't mean sloppy. Claude Code helps with testing and code reviews too, so you ship better code, not just more code.</p>
-                </div>
+                
                 <div class="solution-card">
                     <h3>🧭 Leadership Support</h3>
                     <p>When development suddenly gets much faster, everything else needs to catch up. I help leadership teams figure out what changes and what stays the same.</p>
                 </div>
+                
                 <div class="solution-card">
                     <h3>🎯 Change That Sticks</h3>
                     <p>New tools fail when teams resist them. I help address the "why should we trust AI?" conversations so adoption actually happens.</p>
@@ -972,9 +1043,9 @@
 
     <section class="leadership-section" id="leadership">
         <div class="container">
-            <h2>The Real Challenge: What Happens Next?</h2>
             <div class="leadership-content">
                 <div class="leadership-text">
+                    <h2>The Real Challenge: What Happens Next?</h2>
                     <h3>Speed Creates New Problems</h3>
                     <p>Here's what nobody tells you: when your development team suddenly gets much faster, you'll face entirely new challenges. Your planning process breaks. Your resource allocation assumptions are wrong. Some team members will resist, others will go too fast. The technical part is actually the easy part.</p>
                     
@@ -999,6 +1070,7 @@
                 </div>
                 
                 <div class="leadership-solution">
+                    <img src="img/diverse-leadership.jpg" alt="Diverse leadership team collaboration" class="leadership-image">
                     <h3>We'll Figure It Out Together</h3>
                     <p>I don't just show you Claude Code and disappear. We'll work through these organizational questions together so the transformation actually sticks.</p>
                     
@@ -1013,14 +1085,14 @@
                         <div class="process-item">
                             <span class="process-icon">💬</span>
                             <div class="process-text">
-                                <h4>Facilitated Team Discussion</h4>
+                                <h4>Facilitated Conversations</h4>
                                 <p>Guided conversations that surface concerns and align on next steps</p>
                             </div>
                         </div>
                         <div class="process-item">
                             <span class="process-icon">✅</span>
                             <div class="process-text">
-                                <h4>Actionable Next Steps</h4>
+                                <h4>Actionable Outcomes</h4>
                                 <p>Clear, prioritized actions (1-3 max) that your team can implement immediately</p>
                             </div>
                         </div>
@@ -1030,17 +1102,19 @@
         </div>
     </section>
 
-    <section class="case-study">
+    <section class="case-study-section" id="case-study">
         <div class="container">
-            <h2>How I Discovered This Was Real</h2>
             <div class="case-study-content">
                 <div class="case-study-text">
-                    <h3>My "Holy Shit" Moment</h3>
+                    <img src="img/code-screens.jpg" alt="Code on multiple screens" class="case-study-image">
+                    <h2>How I Discovered This Was Real</h2>
+                    <h3>The Moment Everything Changed</h3>
                     <p>I manage engineering teams at a satellite technology company. Last year, our team was backlogged on a feature that the business needed. Three-week estimate, minimum. I decided to try Claude Code myself.</p>
                     <p>Eight hours later, I had a working feature. Quality code, proper tests, documentation. The whole thing.</p>
                     <p>That's when I realized this isn't just a cool demo—it's a fundamental shift in how we can work. And it's why I started consulting on this stuff.</p>
+                    
                     <p><strong>What Made It Work:</strong></p>
-                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                    <ul>
                         <li>Learning Claude Code properly, not just copying prompts from Twitter</li>
                         <li>Getting the team bought in, not forcing it on them</li>
                         <li>Connecting it to our actual workflows, not running it in isolation</li>
@@ -1072,100 +1146,74 @@
 
     <section class="about-section">
         <div class="container">
-            <h2>Who I Am</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Background That Actually Matters</h3>
-                    <p>I've been in tech for 23 years—13 as a consultant, 10 managing engineering teams. I know what works and what doesn't when you're trying to change how teams build software.</p>
-                    
-                    <div class="experience-grid">
-                        <div class="experience-item">
-                            <h4>13 Years Consulting</h4>
-                            <p>Worked with companies from startups to Fortune 500s. Learned how to navigate organizational politics and get teams to actually adopt new tools.</p>
-                        </div>
-                        <div class="experience-item">
-                            <h4>10 Years Managing Engineering</h4>
-                            <p>Led teams at Tableau, Salesforce, and Planet. Dealt with every problem you're probably facing: backlogs, conflicting priorities, skeptical developers.</p>
+            <div class="about-text">
+                <h2>Who We Are</h2>
+                <h3>Background That Actually Matters</h3>
+                <p>We've been in tech for decades—combining engineering leadership, consulting, and organizational change experience. We know what works and what doesn't when you're trying to change how teams build software.</p>
+                
+                <div class="team-section">
+                    <div class="team-member">
+                        <div class="member-content">
+                            <img src="img/head3.png" alt="Ryan Whitley" class="member-photo">
+                            <div class="member-info">
+                                <h4>Ryan Whitley</h4>
+                                <p class="member-title">Technical AI Implementation</p>
+                                <p>23 years in tech—13 as a consultant, 10 managing engineering teams at Tableau, Salesforce, and Planet. I've dealt with every problem you're probably facing: backlogs, conflicting priorities, skeptical developers. When I first tried Claude Code on a real project, the speed difference was immediately obvious—not just hype, but a fundamental shift in how development can work.</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <p><strong>Then I Tried Claude Code:</strong> I was managing teams at a satellite technology company when I decided to test Claude Code on a real feature. Eight hours later, I had built something our team estimated would take 3 weeks. Good code, proper tests, the works.</p>
-                    
-                    <h3>Why I Do This Differently</h3>
-                    <p>Most people teaching AI tools have never managed an actual development team. I have. I know that showing someone a cool demo isn't the same as getting an organization to change how they work.</p>
-                    
-                    <p>That's why I combine the technical Claude Code training with the leadership conversations you need to make this stick. Because the tool is just the beginning.</p>
+                    <div class="team-member">
+                        <div class="member-content">
+                            <img src="img/sarah.jpg" alt="Sarah Mitchell Parker" class="member-photo">
+                            <div class="member-info">
+                                <h4>Sarah Mitchell Parker</h4>
+                                <p class="member-title">Leadership & Organizational Change</p>
+                                <p>Strategic leader with over two decades navigating complex systems across aerospace and technology. Career spans NASA, Planet, and Saildrone—from government to high-growth startups. Co-Founder of Full Orbit Leadership with engineering background (BSE Aerospace, MSE/MBA) and leadership coaching expertise. Known for making "complexities clear and easy to understand for multiple stakeholders." As she puts it: "While technical challenges may be similar across projects, it's the people who truly differentiate successful outcomes."</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+                <h3>Why We Do This Differently</h3>
+                <p>We know that showing someone a cool demo isn't the same as getting an organization to change how they work. Having managed actual development teams, we understand the organizational challenges that come with adopting new tools.</p>
+                
+                <p>That's why we combine the technical Claude Code training with the leadership conversations you need to make this stick. Because the tool is just the beginning.</p>
             </div>
         </div>
     </section>
 
-    <section class="packages" id="packages">
+    <section class="faq-section" id="faq">
         <div class="container">
-            <h2>Consulting Engagements</h2>
-            <div class="package-comparison">
-                <div class="package-card recommended">
-                    <div class="package-header">
-                        <div class="package-title">Foundation Program</div>
-                        <div class="package-investment">Pre-Flight Pricing Available</div>
-                        <div class="package-scope">Team training and individual coaching over 2-3 weeks</div>
-                        <div class="package-duration">Pre-flight rates through summer 2025, then standard pricing applies</div>
-                    </div>
-                    <ul class="package-features">
-                        <li>Strategic assessment and planning</li>
-                        <li>Five 2-hour Claude Code training sessions</li>
-                        <li>Six hours of executive coaching and leadership facilitation</li>
-                        <li>MCP integration strategy and use case development</li>
-                        <li>Workflow automation guidance</li>
-                        <li>Real-world project implementation</li>
-                        <li>Between-session support and guidance</li>
-                        <li>Custom materials and resources</li>
-                        <li>ROI measurement framework</li>
-                    </ul>
-                    <div class="package-cta">
-                        <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button" target="_blank" rel="noopener noreferrer">Schedule Discovery Call</a>
-                    </div>
-                </div>
-
-                <div class="package-card">
-                    <div class="package-header">
-                        <div class="package-title">Specialized Consulting</div>
-                        <div class="package-investment">Hourly consulting rates</div>
-                        <div class="package-scope">Additional support beyond the Foundation Program</div>
-                    </div>
-                    <ul class="package-features">
-                        <li>Custom MCP development for unique workflows</li>
-                        <li>Advanced automation implementation</li>
-                        <li>Integration troubleshooting and optimization</li>
-                        <li>Extended team training and development</li>
-                        <li>Ongoing support for GitHub, GitLab, and CI/CD systems</li>
-                        <li>Strategic advisory sessions</li>
-                    </ul>
-                    <div class="package-cta">
-                        <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button" target="_blank" rel="noopener noreferrer">Schedule Discovery Call</a>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>The honest answers to questions every engineering leader asks about AI adoption.</p>
             </div>
-        </div>
-    </section>
-
-    <section class="faq-section">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
+            
             <div class="faq-grid">
                 <div class="faq-item">
                     <h3>Does this actually work, or is it just marketing hype?</h3>
-                    <p>Look, I get the skepticism. I felt the same way until I tried it myself. Last year, I used Claude Code to build a complete feature that our team had estimated at 3 weeks. It took me 8 hours. That's when it clicked—this isn't about replacing good engineering practices, it's about removing the tedious parts so you can focus on what matters.</p>
+                    <p>Look, I get the skepticism. I felt the same way until I tried it myself. Earlier this year, I used Claude Code to build a complete feature that our team had estimated at 3 weeks. It took me 8 hours. That's when it clicked—this isn't about replacing good engineering practices, it's about amplifying them. From planning and design to implementation and testing, agentic AI can help accelerate the work that matters most.</p>
                 </div>
                 
                 <div class="faq-item">
                     <h3>Are you saying AI will replace our developers?</h3>
-                    <p>No. Your developers will still be developers—they'll just be much more productive. Think of it like giving them superpowers, not replacing them. They'll spend less time on boilerplate and more time on the interesting problems.</p>
+                    <p>No. Your developers will still be developers—they'll just be much more productive. Think of it like giving them superpowers, not replacing them. Any work they're doing can be done faster, with better test coverage, more thorough review, and higher quality. They accomplish more, not different things.</p>
                 </div>
                 
                 <div class="faq-item">
                     <h3>What about security and compliance?</h3>
                     <p>Fair question. Claude Code runs locally on your machine by default—it's not uploading your entire codebase to the cloud. For enterprise setups, we can configure zero data retention, VPC controls, or even air-gapped deployments. Both Anthropic and Google have the <a href="https://www.anthropic.com/transparency" target="_blank" rel="noopener noreferrer">SOC 2</a> and <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance" target="_blank" rel="noopener noreferrer">compliance certifications</a> you need.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What if my engineers don't trust AI-generated code?</h3>
+                    <p>Good. They shouldn't trust it blindly. AI is a powerful tool, not a replacement for thinking. But let's be honest about what Claude Code can actually do—it's like having a Senior Engineer, Analyst, QE, and technical writer all wrapped into one. The engineers I work with use it daily for key functionality development, troubleshooting, debugging, performance optimizations, planning, documentation, and iteration. You still review everything, you still make the important decisions, but now you have an incredibly capable collaborator who can handle complex work across the entire development lifecycle.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>What happens if we don't adopt AI development tools?</h3>
+                    <p>We're at an inflection point. Teams that master agentic AI development will ship faster, solve harder problems, and take on challenges that would have been impossible before. Meanwhile, teams still doing everything manually will find themselves explaining why projects take months instead of weeks. The gap is widening fast—if you're one step behind today because you haven't started with agentic AI coding, you'll be five steps behind tomorrow. The longer you wait, the harder it becomes to catch up. It's not about replacing good engineering—it's about amplifying what your best people can accomplish.</p>
                 </div>
                 
                 <div class="faq-item">
@@ -1176,64 +1224,19 @@
         </div>
     </section>
 
-    <section class="trust-section">
-        <div class="container">
-            <h2>Why Choose fullOrbit.ai</h2>
-            <div class="trust-indicators">
-                <div class="trust-item">
-                    <div class="trust-icon">🏢</div>
-                    <div class="trust-text">
-                        <strong>Proven Experience</strong><br>
-                        Real-world Claude Code implementation at a leading satellite technology company with measurable results
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">🎯</div>
-                    <div class="trust-text">
-                        <strong>Leadership + Technical Expertise</strong><br>
-                        AI acceleration plus executive coaching to navigate organizational change
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">⚡</div>
-                    <div class="trust-text">
-                        <strong>Rapid ROI</strong><br>
-                        Payback period of 1-2 months based on developer time savings
-                    </div>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">🤝</div>
-                    <div class="trust-text">
-                        <strong>Partnership Approach</strong><br>
-                        Ongoing support and continuous optimization for long-term success
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Ready to Transform?</h3>
-                    <p>Schedule a no-risk discovery call to discuss your development challenges and explore how Claude Code and AI-powered acceleration can transform your team's velocity.</p>
-                    <p style="margin-top: 1rem;">
-                        <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" style="color: #667eea; font-weight: 600;" target="_blank" rel="noopener noreferrer">Schedule Discovery Call</a>
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h3>Consulting Options</h3>
-                    <p><a href="#packages">Foundation Program</a></p>
-                    <p><a href="#packages">Specialized Consulting</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <p><a href="#solution">Transformation Process</a></p>
-                    <p><a href="#solution">Business Case Development</a></p>
-                    <p><a href="#packages">Case Studies</a></p>
-                    <p><a href="#contact">Success Stories</a></p>
-                </div>
+                <h3>Ready to Transform Your Development Velocity?</h3>
+                <p>Schedule a no-risk discovery call to discuss your development challenges and explore how Claude Code and AI-powered acceleration can transform your team's velocity.</p>
+                <p>
+                    <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" target="_blank" rel="noopener noreferrer">Schedule Discovery Call</a>
+                </p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 fullOrbit.ai</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
