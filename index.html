@@ -47,11 +47,18 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.8rem;
-            font-weight: 600;
-            color: #667eea;
+            font-weight: 900;
+            color: #2c3e50;
             text-decoration: none;
+            letter-spacing: -2px;
+            text-transform: lowercase;
+            font-stretch: condensed;
+        }
+        .logo .o-glow {
+            text-shadow: 0 0 20px #667eea, 0 0 40px #667eea;
+            color: #667eea;
         }
 
         .nav-links {
@@ -105,7 +112,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(255, 255, 255, 0.4) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
             z-index: 1;
         }
 
@@ -125,10 +132,12 @@
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 3rem;
-            align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            max-width: 600px;
+            margin: 0;
         }
 
         .hero-text h1 {
@@ -144,6 +153,12 @@
         .hero-text .highlight {
             color: #667eea;
             font-style: italic;
+        }
+
+        .hero-text .emphasis {
+            font-style: italic;
+            font-weight: 300;
+            color: #667eea;
         }
 
         .hero-text p {
@@ -250,6 +265,39 @@
             counter-reset: step-counter;
         }
 
+        /* Intro Section */
+        .intro-section {
+            padding: 4rem 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            text-align: center;
+        }
+
+        .intro-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .intro-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .intro-content p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .intro-content p strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
         /* Concrete Value Section */
         .concrete-value-section {
             padding: 5rem 0;
@@ -330,6 +378,13 @@
             background: linear-gradient(180deg, #f8f9fa 0%, #f5f6f7 100%);
         }
 
+        .vision-glass-container {
+            background: rgba(110, 100, 200, 0.12);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
         .vision-image {
             width: 100%;
             height: 300px;
@@ -368,27 +423,36 @@
         }
 
         .vision-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 3px solid #667eea;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .vision-item:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
         }
 
         .vision-item h4 {
-            color: #e74c3c;
+            color: #667eea;
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .vision-item p {
-            color: #27ae60;
-            font-size: 1rem;
+            color: #2c3e50;
+            font-size: 1.1rem;
             margin: 0;
             font-weight: 600;
+            line-height: 1.4;
         }
 
         /* Solutions Section */
@@ -819,7 +883,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-content,
             .vision-content,
             .case-study-content,
             .leadership-content {
@@ -869,13 +932,13 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">fullOrbit<span style="color: #667eea;">.ai</span></a>
+            <a href="#" class="logo">full<span class="o-glow">o</span>rbit.ai</a>
             <ul class="nav-links">
                 <li><a href="#solutions">Solutions</a></li>
                 <li><a href="#case-study">Experience</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
-            <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button" target="_blank" rel="noopener noreferrer">Schedule Call</a>
+            <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button" target="_blank" rel="noopener noreferrer">Contact</a>
         </nav>
     </header>
 
@@ -884,8 +947,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Clear Your Backlog, Focus on <span class="highlight">What Matters</span></h1>
-                    <p>Your team is brilliant at solving hard problems. They shouldn't be stuck writing boilerplate and debugging syntax errors. Claude Code handles the routine work so they can think about architecture, strategy, and the features that actually move your business forward.</p>
+                    <h1>Your Dev Team Just Got <span class="emphasis">10x</span> Faster. <span class="highlight">What Will You Do Now?</span></h1>
+                    <p>The teams mastering AI-powered development aren't just shipping faster—they're solving problems that were impossible before. While others debate requirements for weeks, you're already iterating on working solutions. What becomes possible when your development cycles transform from weeks to days?</p>
                     
                     <div class="hero-stats">
                         <div class="stat">
@@ -900,20 +963,16 @@
                     
                     <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" class="cta-button" target="_blank" rel="noopener noreferrer">Schedule Discovery Call</a>
                 </div>
-                
-                <div class="hero-visual">
-                    <img src="img/developer-workspace.jpg" alt="Developer workspace with multiple monitors" class="hero-image">
-                    <div class="hero-visual-content">
-                        <h3>Foundation Program</h3>
-                        <ol class="process-list">
-                            <li>Strategic Assessment & Planning</li>
-                            <li>Claude Code Training (5 sessions)</li>
-                            <li>Workflow Integration Setup</li>
-                            <li>Leadership Team Facilitation</li>
-                            <li>Team Adoption & Buy-in</li>
-                        </ol>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <h2>We're fullOrbit.ai - The AI Development Acceleration Firm</h2>
+                <p>We help software and development teams master AI coding tools like Claude Code while coaching leaders through the organizational changes that come with 10x faster development cycles.</p>
+                <p><strong>Because adopting these tools isn't just about technology - it's about transforming how your entire team works.</strong></p>
             </div>
         </div>
     </section>
@@ -921,15 +980,16 @@
     <section class="concrete-value-section">
         <div class="container">
             <div class="section-header">
-                <h2>Here's Exactly What You Get</h2>
-                <p>No vague promises. Here are the specific deliverables and outcomes from the Foundation Program.</p>
+                <h2>How We Transform Your Team</h2>
+                <p>No vague promises. Here are the specific steps and outcomes from our Foundation Program.</p>
             </div>
             
             <div class="value-grid">
                 <div class="value-card">
                     <h3>16-Hour Foundation Program</h3>
                     <ul>
-                        <li>Five 2-hour Claude Code training sessions</li>
+                        <li>Five 2-hour Claude Code training sessions (10 hours)</li>
+                        <li>Six hours of executive coaching sessions</li>
                         <li>Custom MCP integrations for your workflows</li>
                         <li>Real project implementation with your team</li>
                         <li>Between-session Slack support</li>
@@ -937,11 +997,11 @@
                 </div>
                 
                 <div class="value-card">
-                    <h3>Leadership Facilitation</h3>
+                    <h3>Leadership & Organizational Support</h3>
                     <ul>
-                        <li>6 hours of executive coaching sessions</li>
                         <li>Leadership team interviews and alignment</li>
-                        <li>Change management strategy</li>
+                        <li>Change management strategy development</li>
+                        <li>Team adoption facilitation</li>
                         <li>1-3 prioritized organizational action items</li>
                     </ul>
                 </div>
@@ -969,149 +1029,20 @@
         </div>
     </section>
 
-    <section class="vision-section">
-        <div class="container">
-            <div class="vision-content">
-                <div class="vision-text">
-                    <img src="img/team-collaboration.jpg" alt="Team collaborating on strategy" class="vision-image">
-                    <h2>What Would You Do If Your Backlog Were Clear?</h2>
-                    <p>When development velocity increases dramatically, something interesting happens. You stop thinking about <em>how</em> to build and start thinking about <em>what</em> to build. Your team can finally focus on the problems that actually matter to your business.</p>
-                </div>
-                
-                <div class="vision-examples">
-                    <div class="vision-item">
-                        <h4>Instead of debugging CSS...</h4>
-                        <p>Your designers are prototyping new user experiences</p>
-                    </div>
-                    <div class="vision-item">
-                        <h4>Instead of writing CRUD APIs...</h4>
-                        <p>Your engineers are architecting scalable systems</p>
-                    </div>
-                    <div class="vision-item">
-                        <h4>Instead of managing backlogs...</h4>
-                        <p>Your PMs are discovering new opportunities</p>
-                    </div>
-                    <div class="vision-item">
-                        <h4>Instead of estimating stories...</h4>
-                        <p>Your leadership team is planning strategic initiatives</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="solutions-section" id="solutions">
-        <div class="container">
-            <div class="section-header">
-                <h2>How This Actually Works</h2>
-                <p>The technical implementation combined with organizational change management that makes adoption stick.</p>
-            </div>
-            
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <h3>🔄 Works With Your Development Environment</h3>
-                    <p>You don't need to change everything. Claude Code is a CLI tool that works with any IDE—VS Code, IntelliJ, Vim, whatever your team uses. No disruption to existing workflows.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <h3>🚀 Speed That Actually Matters</h3>
-                    <p>Stop waiting for simple features. Claude Code helps you build what used to take weeks in a matter of hours. Focus on strategy instead of syntax.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <h3>👥 More People Can Build</h3>
-                    <p>Your PMs and tech leads have good ideas—now they can build them too. Claude Code lets non-engineers contribute actual code, not just requirements.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <h3>📊 You Still Think, Just About Different Things</h3>
-                    <p>AI doesn't replace engineering judgment—it handles the tedious stuff. Your engineers focus on architecture, business logic, and system design instead of debugging syntax errors and writing boilerplate.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <h3>🧭 Leadership Support</h3>
-                    <p>When development suddenly gets much faster, everything else needs to catch up. I help leadership teams figure out what changes and what stays the same.</p>
-                </div>
-                
-                <div class="solution-card">
-                    <h3>🎯 Change That Sticks</h3>
-                    <p>New tools fail when teams resist them. I help address the "why should we trust AI?" conversations so adoption actually happens.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="leadership-section" id="leadership">
-        <div class="container">
-            <div class="leadership-content">
-                <div class="leadership-text">
-                    <h2>The Real Challenge: What Happens Next?</h2>
-                    <h3>Speed Creates New Problems</h3>
-                    <p>Here's what nobody tells you: when your development team suddenly gets much faster, you'll face entirely new challenges. Your planning process breaks. Your resource allocation assumptions are wrong. Some team members will resist, others will go too fast. The technical part is actually the easy part.</p>
-                    
-                    <div class="leadership-challenges">
-                        <div class="challenge-item">
-                            <h4>Planning Breaks</h4>
-                            <p>When features that took 3 weeks now take 3 hours, how do you plan sprints? Quarters?</p>
-                        </div>
-                        <div class="challenge-item">
-                            <h4>Who Builds What?</h4>
-                            <p>Your PM just built a working prototype. Is that good or chaos?</p>
-                        </div>
-                        <div class="challenge-item">
-                            <h4>Resource Confusion</h4>
-                            <p>You hired 5 engineers for a 6-month project. It's done in 3 weeks. Now what?</p>
-                        </div>
-                        <div class="challenge-item">
-                            <h4>Team Skepticism</h4>
-                            <p>"AI code is probably garbage." How do you handle that conversation?</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="leadership-solution">
-                    <img src="img/diverse-leadership.jpg" alt="Diverse leadership team collaboration" class="leadership-image">
-                    <h3>We'll Figure It Out Together</h3>
-                    <p>I don't just show you Claude Code and disappear. We'll work through these organizational questions together so the transformation actually sticks.</p>
-                    
-                    <div class="facilitation-process">
-                        <div class="process-item">
-                            <span class="process-icon">🎯</span>
-                            <div class="process-text">
-                                <h4>Leadership Interviews</h4>
-                                <p>One-on-one conversations to understand your team's specific challenges and goals</p>
-                            </div>
-                        </div>
-                        <div class="process-item">
-                            <span class="process-icon">💬</span>
-                            <div class="process-text">
-                                <h4>Facilitated Conversations</h4>
-                                <p>Guided conversations that surface concerns and align on next steps</p>
-                            </div>
-                        </div>
-                        <div class="process-item">
-                            <span class="process-icon">✅</span>
-                            <div class="process-text">
-                                <h4>Actionable Outcomes</h4>
-                                <p>Clear, prioritized actions (1-3 max) that your team can implement immediately</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="case-study-section" id="case-study">
         <div class="container">
             <div class="case-study-content">
                 <div class="case-study-text">
                     <img src="img/code-screens.jpg" alt="Code on multiple screens" class="case-study-image">
-                    <h2>How I Discovered This Was Real</h2>
-                    <h3>The Moment Everything Changed</h3>
-                    <p>I manage engineering teams at a satellite technology company. Last year, our team was backlogged on a feature that the business needed. Three-week estimate, minimum. I decided to try Claude Code myself.</p>
-                    <p>Eight hours later, I had a working feature. Quality code, proper tests, documentation. The whole thing.</p>
-                    <p>That's when I realized this isn't just a cool demo—it's a fundamental shift in how we can work. And it's why I started consulting on this stuff.</p>
+                    <h2>The Moment Everything Changed (And How It Actually Works)</h2>
+                    <p>I manage engineering teams at a satellite technology company. This past May, we started using Claude Code and by July, our team was already churning out features 10x faster than before. Same tools, same IDE, same workflows—just with an AI that actually understands code.</p>
+                    
+                    <p>That's when I realized: your team doesn't need to change everything. Claude Code works with VS Code, IntelliJ, Vim, whatever you use. No new languages, no disruption. But the output? Development cycles that used to take weeks now happen in days.</p>
+                    
+                    <p><strong>While your competitors are still planning, you're already shipping.</strong></p>
                     
                     <p><strong>What Made It Work:</strong></p>
                     <ul>
