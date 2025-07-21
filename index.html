@@ -328,20 +328,23 @@
         .value-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .value-card {
-            background: #f8f9fa;
-            padding: 2.5rem;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.3s;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 3.5rem;
+            border-radius: 20px;
+            border: 2px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
         }
 
         .value-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
         }
 
         .value-card h3 {
@@ -349,7 +352,7 @@
             color: #667eea;
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .value-card ul {
@@ -357,19 +360,21 @@
         }
 
         .value-card li {
-            padding: 0.5rem 0;
-            color: #7f8c8d;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
             position: relative;
-            padding-left: 1.5rem;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .value-card li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: #27ae60;
+            color: #667eea;
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
         /* Vision Section */
@@ -624,94 +629,117 @@
             margin: 0;
         }
 
-        /* Case Study Section */
-        .case-study-section {
+        /* Curriculum Section */
+        .curriculum-section {
             padding: 5rem 0;
             background: linear-gradient(180deg, #f8f9fa 0%, #f5f6f7 100%);
         }
 
-        .case-study-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+        .curriculum-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
 
-        .case-study-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .case-study-text h2 {
+        .curriculum-header h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             color: #2c3e50;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-weight: 500;
         }
 
-        .case-study-text h3 {
-            color: #667eea;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+        .curriculum-header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
         }
 
-        .case-study-text p {
+        .curriculum-modules {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .curriculum-modules .step-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .curriculum-modules .step-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 80px;
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(180deg, #667eea 0%, #e9ecef 100%);
+        }
+
+        .curriculum-modules .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-right: 2rem;
+        }
+
+        .curriculum-modules .step-content {
+            flex: 1;
+        }
+
+        .curriculum-modules .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .curriculum-modules .step-title {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        .curriculum-modules .step-duration-badge {
+            background: #667eea;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .curriculum-modules .step-description {
             color: #7f8c8d;
-            margin-bottom: 1.5rem;
             font-size: 1rem;
             line-height: 1.6;
         }
 
-        .case-study-text ul {
-            list-style: none;
-            margin: 2rem 0;
+        .curriculum-note {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.2);
         }
 
-        .case-study-text li {
-            padding: 0.5rem 0;
-            color: #7f8c8d;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .case-study-text li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
-        }
-
-        .technical-vignettes {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .vignette-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .vignette-item h4 {
-            color: #667eea;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .vignette-item p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            line-height: 1.4;
+        .curriculum-note p {
+            color: #2c3e50;
+            font-size: 1.1rem;
             margin: 0;
+        }
+
+        .curriculum-note strong {
+            color: #667eea;
         }
 
         /* About Section */
@@ -748,37 +776,40 @@
         }
 
         .team-member {
-            background: #f8f9fa;
-            padding: 2.5rem;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
-        .member-content {
-            display: flex;
-            gap: 2rem;
-            align-items: start;
+        .team-member:last-child {
+            margin-bottom: 0;
         }
+
 
         .member-photo {
-            width: 120px;
-            height: 120px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 60px;
-            flex-shrink: 0;
-            border: 3px solid #667eea;
+            border-radius: 50%;
+            border: 4px solid #667eea;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
         }
 
         .member-info h4 {
-            color: #667eea;
+            color: #2c3e50;
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
 
         .member-title {
-            color: #2c3e50;
+            color: #667eea;
             font-size: 1rem;
             font-weight: 500;
             margin-bottom: 1rem !important;
@@ -884,26 +915,67 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .vision-content,
-            .case-study-content,
+            .curriculum-content,
             .leadership-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-
+            
+            .curriculum-modules .step-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .curriculum-modules .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .curriculum-modules .step-item:not(:last-child)::after {
+                display: none;
+            }
+            
             .value-grid,
             .solutions-grid,
             .experience-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 2rem;
             }
-
+            
+            .value-card {
+                padding: 2.5rem;
+            }
+            
+            .team-member {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+                padding: 2rem;
+            }
+            
+            .member-photo {
+                width: 140px;
+                height: 140px;
+                margin: 0 auto;
+            }
+        }
+        
+        /* Additional responsive styles */
+        @media (max-width: 968px) {
+            .team-member {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
             .hero-text h1 {
                 font-size: 2.5rem;
             }
 
             .section-header h2,
             .vision-text h2,
-            .case-study-text h2,
+            .curriculum-header h2,
             .leadership-text h2,
             .about-text h2 {
                 font-size: 2.2rem;
@@ -971,7 +1043,7 @@
         <div class="container">
             <div class="intro-content">
                 <h2>We're fullOrbit.ai - The AI Development Acceleration Firm</h2>
-                <p>We help software and development teams master AI coding tools like Claude Code while coaching leaders through the organizational changes that come with 10x faster development cycles.</p>
+                <p>We help software and development teams master AI coding tools like Claude Code and Gemini CLI while coaching leaders through the organizational changes that come with 10x faster development cycles.</p>
                 <p><strong>Because adopting these tools isn't just about technology - it's about transforming how your entire team works.</strong></p>
             </div>
         </div>
@@ -981,48 +1053,31 @@
         <div class="container">
             <div class="section-header">
                 <h2>How We Transform Your Team</h2>
-                <p>No vague promises. Here are the specific steps and outcomes from our Foundation Program.</p>
+                <p>Two strategic pillars that set us apart from typical training companies.</p>
             </div>
             
             <div class="value-grid">
                 <div class="value-card">
-                    <h3>16-Hour Foundation Program</h3>
+                    <h3>Foundation Program</h3>
                     <ul>
-                        <li>Five 2-hour Claude Code training sessions (10 hours)</li>
-                        <li>Six hours of executive coaching sessions</li>
-                        <li>Custom MCP integrations for your workflows</li>
-                        <li>Real project implementation with your team</li>
-                        <li>Between-session Slack support</li>
+                        <li>Five 2-hour Claude Code or Gemini CLI training sessions (10 hours)</li>
+                        <li>Demonstrate MCP integration for your specific team tools</li>
+                        <li>Best practices - Memory, Configuration, Team Knowledge</li>
+                        <li>Try out real project implementation with your team</li>
+                        <li>Between-session remote support</li>
+                        <li>30-day follow-up assessment</li>
                     </ul>
                 </div>
                 
                 <div class="value-card">
-                    <h3>Leadership & Organizational Support</h3>
+                    <h3>Leadership Support</h3>
                     <ul>
-                        <li>Leadership team interviews and alignment</li>
+                        <li>Six hours of executive coaching sessions</li>
+                        <li>Leadership team interview and alignment</li>
                         <li>Change management strategy development</li>
                         <li>Team adoption facilitation</li>
-                        <li>1-3 prioritized organizational action items</li>
-                    </ul>
-                </div>
-                
-                <div class="value-card">
-                    <h3>Technical Setup</h3>
-                    <ul>
-                        <li>Claude Code installation and configuration</li>
-                        <li>Integration with GitHub, JIRA, Slack</li>
-                        <li>Custom automation workflows</li>
-                        <li>Security and compliance configuration</li>
-                    </ul>
-                </div>
-                
-                <div class="value-card">
-                    <h3>Measurable Outcomes</h3>
-                    <ul>
-                        <li>ROI measurement framework</li>
-                        <li>Velocity tracking setup</li>
-                        <li>Team adoption metrics</li>
-                        <li>30-day follow-up assessment</li>
+                        <li>ROI measurement framework setup</li>
+                        <li>Velocity tracking implementation</li>
                     </ul>
                 </div>
             </div>
@@ -1032,45 +1087,82 @@
 
 
 
-    <section class="case-study-section" id="case-study">
+    <section class="curriculum-section" id="curriculum">
         <div class="container">
-            <div class="case-study-content">
-                <div class="case-study-text">
-                    <img src="img/code-screens.jpg" alt="Code on multiple screens" class="case-study-image">
-                    <h2>The Moment Everything Changed (And How It Actually Works)</h2>
-                    <p>I manage engineering teams at a satellite technology company. This past May, we started using Claude Code and by July, our team was already churning out features 10x faster than before. Same tools, same IDE, same workflows—just with an AI that actually understands code.</p>
-                    
-                    <p>That's when I realized: your team doesn't need to change everything. Claude Code works with VS Code, IntelliJ, Vim, whatever you use. No new languages, no disruption. But the output? Development cycles that used to take weeks now happen in days.</p>
-                    
-                    <p><strong>While your competitors are still planning, you're already shipping.</strong></p>
-                    
-                    <p><strong>What Made It Work:</strong></p>
-                    <ul>
-                        <li>Learning Claude Code properly, not just copying prompts from Twitter</li>
-                        <li>Getting the team bought in, not forcing it on them</li>
-                        <li>Connecting it to our actual workflows, not running it in isolation</li>
-                        <li>Iterating and improving, not expecting perfection on day one</li>
-                    </ul>
+            <div class="curriculum-header">
+                <h2>The Foundation Program Curriculum</h2>
+                <p>Five comprehensive modules designed to transform your team from traditional development to AI-accelerated productivity.</p>
+            </div>
+            
+            <div class="curriculum-modules">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-title">Tool Setup & Configuration</div>
+                            <div class="step-duration-badge">2 hours</div>
+                        </div>
+                        <div class="step-description">
+                            Get up and running: API key creation, account configuration. Learn basic commands. Learn how Claude.md files work for personal preferences and how to distribute shared configurations across your team.
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="technical-vignettes">
-                    <div class="vignette-item">
-                        <h4>🚀 Feature Development</h4>
-                        <p>Used Claude Code with Sonnet 4.0 to rapidly build new roadmap features for existing Python/Flask applications</p>
-                    </div>
-                    <div class="vignette-item">
-                        <h4>⚡ Rapid Prototyping</h4>
-                        <p>Built working feature prototypes in hours using Claude Code's multi-model approach</p>
-                    </div>
-                    <div class="vignette-item">
-                        <h4>🔧 Production Troubleshooting</h4>
-                        <p>Leveraged Claude Code + Opus 4.0 to diagnose and fix production issues across the full stack</p>
-                    </div>
-                    <div class="vignette-item">
-                        <h4>⚙️ Performance Optimization</h4>
-                        <p>Applied Claude Code to optimize existing Python/Flask APIs and PostgreSQL queries</p>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-title">Agentic Development Best Practices</div>
+                            <div class="step-duration-badge">2 hours</div>
+                        </div>
+                        <div class="step-description">
+                            Learn strategic interaction patterns: using Planning Mode effectively, specification-driven development, GitHub ModelSpec patterns. Move beyond one-off prompting to systematic agentic development.
+                        </div>
                     </div>
                 </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-title">MCP Integrations & CLI Tools</div>
+                            <div class="step-duration-badge">2 hours</div>
+                        </div>
+                        <div class="step-description">
+                            Deep dive into Model Context Protocol (MCP) - what it is, why it's critical, and how to leverage it. Connect to Google Docs, Slack, Jira, GitLab, even Figma for seamless workflow integration.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-title">Team Workflows & Code Review</div>
+                            <div class="step-duration-badge">2 hours</div>
+                        </div>
+                        <div class="step-description">
+                            Handle increased output responsibly: implement agentic code reviews, design merge requests that blend human and AI feedback, create team agreements for new AI-enhanced capabilities.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-title">Real-World Implementation</div>
+                            <div class="step-duration-badge">2 hours</div>
+                        </div>
+                        <div class="step-description">
+                            Apply agentic development to your actual projects. We'll work together on live tasks from your backlog, demonstrating how these tools solve real problems in your specific context.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="curriculum-note">
+                <p><strong>Plus:</strong> 6 hours of executive coaching to help leadership navigate the organizational changes that come with 10x development acceleration.</p>
             </div>
         </div>
     </section>
@@ -1084,24 +1176,20 @@
                 
                 <div class="team-section">
                     <div class="team-member">
-                        <div class="member-content">
-                            <img src="img/head3.png" alt="Ryan Whitley" class="member-photo">
-                            <div class="member-info">
-                                <h4>Ryan Whitley</h4>
-                                <p class="member-title">Technical AI Implementation</p>
-                                <p>23 years in tech—13 as a consultant, 10 managing engineering teams at Tableau, Salesforce, and Planet. I've dealt with every problem you're probably facing: backlogs, conflicting priorities, skeptical developers. When I first tried Claude Code on a real project, the speed difference was immediately obvious—not just hype, but a fundamental shift in how development can work.</p>
-                            </div>
+                        <img src="img/head3.png" alt="Ryan Whitley" class="member-photo">
+                        <div class="member-info">
+                            <h4>Ryan Whitley</h4>
+                            <p class="member-title">Technical AI Implementation</p>
+                            <p>23 years in tech—13 as a consultant, 10 managing engineering teams at Tableau, Salesforce, and Planet. I've dealt with every problem you're probably facing: backlogs, conflicting priorities, persnickety developers. When I first tried Claude Code on a real project, the speed difference was immediately obvious—not just hype, but a fundamental shift in how development can work.</p>
                         </div>
                     </div>
                     
                     <div class="team-member">
-                        <div class="member-content">
-                            <img src="img/sarah.jpg" alt="Sarah Mitchell Parker" class="member-photo">
-                            <div class="member-info">
-                                <h4>Sarah Mitchell Parker</h4>
-                                <p class="member-title">Leadership & Organizational Change</p>
-                                <p>Strategic leader with over two decades navigating complex systems across aerospace and technology. Career spans NASA, Planet, and Saildrone—from government to high-growth startups. Co-Founder of Full Orbit Leadership with engineering background (BSE Aerospace, MSE/MBA) and leadership coaching expertise. Known for making "complexities clear and easy to understand for multiple stakeholders." As she puts it: "While technical challenges may be similar across projects, it's the people who truly differentiate successful outcomes."</p>
-                            </div>
+                        <img src="img/sarah.jpg" alt="Sarah Mitchell Parker" class="member-photo">
+                        <div class="member-info">
+                            <h4>Sarah Mitchell Parker</h4>
+                            <p class="member-title">Leadership & Organizational Change</p>
+                            <p>Strategic leader with over two decades navigating complex systems across aerospace and technology. Career spans NASA, Planet, and Saildrone—from government to high-growth startups. Co-Founder of Full Orbit Leadership with engineering background (BSE Aerospace, MSE/MBA) and leadership coaching expertise. Known for making "complexities clear and easy to understand for multiple stakeholders." As she puts it: "While technical challenges may be similar across projects, it's the people who truly differentiate successful outcomes."</p>
                         </div>
                     </div>
                 </div>
@@ -1123,23 +1211,23 @@
             
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h3>Does this actually work, or is it just marketing hype?</h3>
-                    <p>Look, I get the skepticism. I felt the same way until I tried it myself. Earlier this year, I used Claude Code to build a complete feature that our team had estimated at 3 weeks. It took me 8 hours. That's when it clicked—this isn't about replacing good engineering practices, it's about amplifying them. From planning and design to implementation and testing, agentic AI can help accelerate the work that matters most.</p>
+                    <h3>What is agentic development?</h3>
+                    <p>Agentic development is when AI tools like <strong>Claude Code</strong> and <strong>Gemini CLI</strong> act as intelligent development partners—not just code generators, but collaborators who understand context, make strategic decisions, and handle complex workflows end-to-end. These tools can read your entire codebase, understand your architecture, write comprehensive tests, debug issues, and even help with planning and documentation. Unlike simple AI autocomplete, they work at the task level: "implement user authentication with OAuth" becomes a complete, tested feature rather than just a few lines of code. The result? Development cycles that previously took weeks now happen in hours, with better quality and test coverage than manual development.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Are you saying AI will replace our developers?</h3>
-                    <p>No. Your developers will still be developers—they'll just be much more productive. Think of it like giving them superpowers, not replacing them. Any work they're doing can be done faster, with better test coverage, more thorough review, and higher quality. They accomplish more, not different things.</p>
+                    <h3>Will developers who master agentic AI replace those who don't?</h3>
+                    <p>Absolutely. The question isn't whether AI will replace developers—it's whether developers who leverage AI will replace those who don't. Right now, your best developers using Claude Code can deliver features in hours that used to take weeks. They're solving harder problems, building better software, and becoming indispensable. The teams that master these tools first will have an enormous competitive advantage.</p>
                 </div>
                 
                 <div class="faq-item">
                     <h3>What about security and compliance?</h3>
-                    <p>Fair question. Claude Code runs locally on your machine by default—it's not uploading your entire codebase to the cloud. For enterprise setups, we can configure zero data retention, VPC controls, or even air-gapped deployments. Both Anthropic and Google have the <a href="https://www.anthropic.com/transparency" target="_blank" rel="noopener noreferrer">SOC 2</a> and <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance" target="_blank" rel="noopener noreferrer">compliance certifications</a> you need.</p>
+                    <p>Claude Code does send code snippets to Anthropic's servers for processing, but you control what gets shared through file selection and context management. For enterprises concerned about data exposure, Google and Anthropic have zero data retention policies, private cloud deployments, or on-premises solutions. Both also have <a href="https://www.anthropic.com/transparency" target="_blank" rel="noopener noreferrer">SOC 2</a> and <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance" target="_blank" rel="noopener noreferrer">compliance certifications</a>, and we'll work with your team to implement appropriate safeguards for your specific requirements.</p>
                 </div>
                 
                 <div class="faq-item">
                     <h3>What if my engineers don't trust AI-generated code?</h3>
-                    <p>Good. They shouldn't trust it blindly. AI is a powerful tool, not a replacement for thinking. But let's be honest about what Claude Code can actually do—it's like having a Senior Engineer, Analyst, QE, and technical writer all wrapped into one. The engineers I work with use it daily for key functionality development, troubleshooting, debugging, performance optimizations, planning, documentation, and iteration. You still review everything, you still make the important decisions, but now you have an incredibly capable collaborator who can handle complex work across the entire development lifecycle.</p>
+                    <p>Good. They shouldn't trust it blindly. AI is a powerful tool and thought-partner, not a replacement for thinking. But let's be honest about what Claude Code can actually do—it's like having a Senior Engineer, Analyst, QE, and technical writer all wrapped into one. The engineers I work with use it daily for key functionality development, troubleshooting, debugging, performance optimizations, planning and documentation. You still review everything, you still make the important decisions, but now you have an incredibly capable collaborator who can handle complex work across the entire development lifecycle.</p>
                 </div>
                 
                 <div class="faq-item">
@@ -1148,8 +1236,8 @@
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Is this just technical training, or do you help with the organizational stuff too?</h3>
-                    <p>Both. The technical part is actually the easy part. The hard part is helping your leadership team figure out how to plan, resource, and manage when development suddenly gets much faster. I spend time with your leadership team to work through those challenges together.</p>
+                    <h3>How long does it take to see results?</h3>
+                    <p>Based on my experience implementing these tools, the speed improvement is immediate—often within the first week. Each developer will need to figure out their own relationship with these tools and how to optimize them. The full workflow transformation, where these tools become second nature and teams are consistently operating at much higher velocity, took my team 6-8 weeks. The key is we don't just dump training on your team and leave. We guide the adoption process, help overcome resistance, and ensure the new workflows actually stick. That's why we include the executive coaching and follow-up assessment—sustainable change takes both technical skills and organizational support.</p>
                 </div>
             </div>
         </div>
@@ -1159,7 +1247,7 @@
         <div class="container">
             <div class="footer-content">
                 <h3>Ready to Transform Your Development Velocity?</h3>
-                <p>Schedule a no-risk discovery call to discuss your development challenges and explore how Claude Code and AI-powered acceleration can transform your team's velocity.</p>
+                <p>Schedule a no-risk discovery call to discuss your development challenges and explore how AI tools like Claude Code can accelerate your team's velocity.</p>
                 <p>
                     <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" target="_blank" rel="noopener noreferrer">Schedule Discovery Call</a>
                 </p>
