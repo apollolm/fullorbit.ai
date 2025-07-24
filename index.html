@@ -175,62 +175,6 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat {
-            text-align: left;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
-            font-weight: 600;
-            color: #667eea;
-            display: block;
-            line-height: 1;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #e0e0e0;
-            margin-top: 0.25rem;
-            text-transform: uppercase;
-            letter-spacing: -0.01em;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-visual {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 0;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px 15px 0 0;
-        }
-
-        .hero-visual-content {
-            padding: 2rem;
-        }
-
-        .hero-visual h3 {
-            font-family: 'Playfair Display', serif;
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
 
         .process-list {
             list-style: none;
@@ -353,12 +297,21 @@
             box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
         }
 
+        .value-card.leadership {
+            border-color: #1A7B8C;
+            box-shadow: 0 4px 20px rgba(26, 123, 140, 0.1);
+        }
+
         .value-card h3 {
             font-family: 'Playfair Display', serif;
             color: #667eea;
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
             font-weight: 600;
+        }
+
+        .value-card.leadership h3 {
+            color: #1A7B8C;
         }
 
         .value-card ul {
@@ -383,257 +336,43 @@
             font-size: 1.2rem;
         }
 
-        /* Vision Section */
-        .vision-section {
-            padding: 5rem 0;
-            background: linear-gradient(180deg, #f8f9fa 0%, #f5f6f7 100%);
+        .value-card.leadership li::before {
+            color: #1A7B8C;
         }
 
-        .vision-glass-container {
-            background: rgba(110, 100, 200, 0.12);
-            padding: 4rem 2rem;
-            border-radius: 20px;
-            margin: 2rem 0;
-        }
-
-        .vision-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .vision-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .vision-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        .vision-text p {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .vision-examples {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .vision-item {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(20px);
+        .package-overview {
+            background: rgba(102, 126, 234, 0.1);
             padding: 2rem;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            margin-bottom: 2rem;
         }
 
-        .vision-item:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
-        }
-
-        .vision-item h4 {
-            color: #667eea;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .vision-item p {
+        .package-overview p {
             color: #2c3e50;
             font-size: 1.1rem;
-            margin: 0;
-            font-weight: 600;
-            line-height: 1.4;
+            margin: 0 0 1rem 0;
         }
 
-        /* Solutions Section */
-        .solutions-section {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        .package-overview p:last-child {
+            margin-bottom: 0;
         }
 
-        .solutions-section .section-header h2 {
-            color: white;
-        }
-
-        .solutions-section .section-header p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .solution-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
-        }
-
-        .solution-card:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .solution-card h3 {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .solution-card p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Leadership Section */
-        .leadership-section {
-            padding: 5rem 0;
-            background: linear-gradient(180deg, #ffffff 0%, #fdfdfd 100%);
-        }
-
-        .leadership-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .leadership-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .leadership-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        .leadership-text h3 {
+        .package-overview strong {
             color: #667eea;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
         }
 
-        .leadership-text p {
-            color: #7f8c8d;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            line-height: 1.6;
+        .program-tagline {
+            font-size: 1.2rem !important;
+            color: #667eea !important;
+            font-weight: 500 !important;
+            font-style: italic;
+            margin-top: 0.5rem !important;
         }
 
-        .leadership-challenges {
-            display: grid;
-            gap: 1.5rem;
-        }
 
-        .challenge-item {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 3px solid #e74c3c;
-        }
 
-        .challenge-item h4 {
-            color: #e74c3c;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .challenge-item p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            margin: 0;
-        }
-
-        .leadership-solution {
-            background: #f8f9fa;
-            padding: 2.5rem;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
-        }
-
-        .leadership-solution h3 {
-            font-family: 'Playfair Display', serif;
-            color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .leadership-solution p {
-            color: #7f8c8d;
-            margin-bottom: 2rem;
-        }
-
-        .facilitation-process {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .process-item {
-            display: flex;
-            align-items: start;
-            gap: 1rem;
-        }
-
-        .process-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .process-text h4 {
-            color: #2c3e50;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .process-text p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin: 0;
-        }
 
         /* Curriculum Section */
         .curriculum-section {
@@ -746,6 +485,44 @@
 
         .curriculum-note strong {
             color: #667eea;
+        }
+
+        .step-number.leadership-number {
+            background: linear-gradient(135deg, #1A7B8C 0%, #0F4C5C 100%);
+        }
+
+        .step-duration-badge.leadership-badge {
+            background: #1A7B8C;
+        }
+
+        .track-divider {
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .track-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e9ecef;
+            z-index: 1;
+        }
+
+        .track-divider span {
+            background: white;
+            padding: 0.5rem 2rem;
+            color: #667eea;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .track-divider.leadership span {
+            color: #1A7B8C;
         }
 
         /* About Section */
@@ -967,13 +744,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .vision-content,
-            .curriculum-content,
-            .leadership-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
             .curriculum-modules .step-item {
                 flex-direction: column;
                 align-items: center;
@@ -989,9 +759,7 @@
                 display: none;
             }
             
-            .value-grid,
-            .solutions-grid,
-            .experience-grid {
+            .value-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
@@ -1034,9 +802,6 @@
                 font-size: 2.2rem;
             }
 
-            .hero-stats {
-                gap: 2rem;
-            }
 
             .nav-links {
                 display: none;
@@ -1093,51 +858,17 @@
         </div>
     </section>
 
-    <section class="concrete-value-section" id="concrete-value-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>How We Transform Your Team</h2>
-                <p>Two strategic pillars that set us apart from typical training companies.</p>
-            </div>
-            
-            <div class="value-grid">
-                <div class="value-card">
-                    <h3>Foundation Program</h3>
-                    <ul>
-                        <li>Five 2-hour Claude Code or Gemini CLI training sessions (10 hours)</li>
-                        <li>Demonstrate MCP integration for your specific team tools</li>
-                        <li>Best practices - Memory, Configuration, Team Knowledge</li>
-                        <li>Try out real project implementation with your team</li>
-                        <li>Between-session remote support</li>
-                        <li>30-day follow-up assessment</li>
-                    </ul>
-                </div>
-                
-                <div class="value-card">
-                    <h3>Leadership Support</h3>
-                    <ul>
-                        <li>Six hours of executive coaching sessions</li>
-                        <li>Leadership team interview and alignment</li>
-                        <li>Change management strategy development</li>
-                        <li>Team adoption facilitation</li>
-                        <li>ROI measurement framework setup</li>
-                        <li>Velocity tracking implementation</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
 
 
     <section class="curriculum-section" id="curriculum">
         <div class="container">
             <div class="curriculum-header">
-                <h2>The Foundation Program Curriculum</h2>
-                <p>Five comprehensive modules designed to transform your team from traditional development to AI-accelerated productivity.</p>
+                <h2>How We Transform Your Team</h2>
+                <p>Eight integrated modules covering technical training and organizational change.</p>
             </div>
-            
+                <div class="track-divider">
+                    <span>Foundation Program</span>
+                </div>
             <div class="curriculum-modules">
                 <div class="step-item">
                     <div class="step-number">1</div>
@@ -1203,10 +934,49 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="curriculum-note">
-                <p><strong>Plus:</strong> 6 hours of executive coaching to help leadership navigate the organizational changes that come with 10x development acceleration.</p>
+
+                <div class="track-divider leadership">
+                    <span>Leadership Support</span>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number leadership-number">6</div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-title">Executive Alignment & Strategy</div>
+                            <div class="step-duration-badge leadership-badge">2 hours</div>
+                        </div>
+                        <div class="step-description">
+                            Leadership team interviews, change strategy development, and ROI framework setup.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number leadership-number">7</div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-title">Change Management & Adoption</div>
+                            <div class="step-duration-badge leadership-badge">2 hours</div>
+                        </div>
+                        <div class="step-description">
+                            Team adoption facilitation, resistance management, and velocity tracking implementation.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number leadership-number">8</div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-title">Sustainable Transformation</div>
+                            <div class="step-duration-badge leadership-badge">2 hours</div>
+                        </div>
+                        <div class="step-description">
+                            30-day follow-up assessment, success measurement, and long-term adoption strategies.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1216,15 +986,19 @@
             <div class="about-text">
                 <h2>Who We Are</h2>
                 <h3>Background That Actually Matters</h3>
-                <p>We've been in tech for decades—combining engineering leadership, consulting, and organizational change experience. We know what works and what doesn't when you're trying to change how teams build software.</p>
+                <p>We've spent decades in tech building expertise across engineering leadership, consulting, and organizational change.
+  We know what works and what doesn't when you're trying to change how teams build software.</p>
                 
                 <div class="team-section">
                     <div class="team-member">
                         <img src="img/head3.png" alt="Ryan Whitley" class="member-photo">
                         <div class="member-info">
                             <h4>Ryan Whitley</h4>
-                            <p class="member-title">Technical AI Implementation</p>
-                            <p>23 years in tech—13 as a consultant, 10 managing engineering teams at Tableau, Salesforce, and Planet. I've dealt with every problem you're probably facing: backlogs, conflicting priorities, persnickety developers. When I first tried Claude Code on a real project, the speed difference was immediately obvious—not just hype, but a fundamental shift in how development can work.</p>
+                            <p class="member-title">Technical AI Implementation & Coaching</p>
+                            <p>My 23 years in tech span consulting (13 years) and managing engineering teams at Tableau, Salesforce, and Planet (10
+  years). I've worked through the same situations you face: managing backlogs, balancing competing priorities, leading
+  developers through change. When I first used Claude Code on a real project, the speed difference was striking. This is
+   a fundamental shift in how development works.</p>
                         </div>
                     </div>
                     
@@ -1233,7 +1007,11 @@
                         <div class="member-info">
                             <h4>Sarah Mitchell Parker</h4>
                             <p class="member-title">Leadership & Organizational Change</p>
-                            <p>Strategic leader with over two decades navigating complex systems across aerospace and technology. Career spans NASA, Planet, and Saildrone—from government to high-growth startups. Co-Founder of Full Orbit Leadership with engineering background (BSE Aerospace, MSE/MBA) and leadership coaching expertise. Known for making "complexities clear and easy to understand for multiple stakeholders." As she puts it: "While technical challenges may be similar across projects, it's the people who truly differentiate successful outcomes."</p>
+                            <p>I've spent over 20 years leading teams through complex changes in aerospace and tech. My career took me from NASA to
+  high-growth startups like Planet and Saildrone. I co-founded Full Orbit Leadership and have an engineering background
+  (BSE Aerospace, MSE/MBA) plus leadership coaching experience. People know me for making complex ideas easy to
+  understand for everyone involved. Here's what I've learned: technical challenges are often similar across projects,
+  but it's the people who make or break successful outcomes.</p>
                         </div>
                     </div>
                 </div>
@@ -1241,7 +1019,7 @@
                 <h3>Why We Do This Differently</h3>
                 <p>We know that showing someone a cool demo isn't the same as getting an organization to change how they work. Having managed actual development teams, we understand the organizational challenges that come with adopting new tools.</p>
                 
-                <p>That's why we combine the technical Claude Code training with the leadership conversations you need to make this stick. Because the tool is just the beginning.</p>
+                <p>That's why we combine the technical AI training with the leadership conversations you need to make this stick. Because the tool is just the beginning.</p>
             </div>
         </div>
     </section>
@@ -1260,8 +1038,10 @@
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Will developers who master agentic AI replace those who don't?</h3>
-                    <p>Absolutely. The question isn't whether AI will replace developers—it's whether developers who leverage AI will replace those who don't. Right now, your best developers using Claude Code can deliver features in hours that used to take weeks. They're solving harder problems, building better software, and becoming indispensable. The teams that master these tools first will have an enormous competitive advantage.</p>
+                    <h3>How will AI help my dev team?</h3>
+                    <p>Developers using Claude Code can deliver features in hours that used to take weeks. They're solving harder problems, building better software, and becoming incredibly productive.</p>
+                    <p>AI tools handle the heavy lifting—reading codebases, writing tests, debugging issues, even planning architecture. Your team focuses on the creative problem-solving and strategic decisions.</p>
+                    <p>The teams mastering these tools first are gaining an enormous competitive advantage.</p>
                 </div>
                 
                 <div class="faq-item">
@@ -1281,7 +1061,9 @@
                 
                 <div class="faq-item">
                     <h3>How long does it take to see results?</h3>
-                    <p>Based on my experience implementing these tools, the speed improvement is immediate—often within the first week. Each developer will need to figure out their own relationship with these tools and how to optimize them. The full workflow transformation, where these tools become second nature and teams are consistently operating at much higher velocity, took my team 6-8 weeks. The key is we don't just dump training on your team and leave. We guide the adoption process, help overcome resistance, and ensure the new workflows actually stick. That's why we include the executive coaching and follow-up assessment—sustainable change takes both technical skills and organizational support.</p>
+                    <p>The productivity jump happens fast. My team improved within their first week using Claude Code. But getting everyone
+  comfortable and optimized? Different story. Some developers adapt quickly, others need coaching through their
+  skepticism. Full adoption, where AI-assisted development becomes your normal workflow, took us 6-8 weeks.The key is we don't just dump training on your team and leave. We guide the adoption process, help overcome resistance, and ensure the new workflows actually stick. That's why we include the executive coaching and follow-up assessment—sustainable change takes both technical skills and organizational support.</p>
                 </div>
             </div>
         </div>
@@ -1290,7 +1072,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <h3>Ready to Transform Your Development Velocity?</h3>
+                <h3>Ready for Liftoff?</h3>
                 <p>Schedule a no-risk discovery call to discuss your development challenges and explore how AI tools like Claude Code can accelerate your team's velocity.</p>
                 <p>
                     <a href="https://calendar.app.google/wj1bncVpZBY3bd3P7" target="_blank" rel="noopener noreferrer">Schedule FREE Discovery Call</a>
